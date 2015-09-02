@@ -1,0 +1,25 @@
+typedef struct{
+	int x;
+	int y;
+	float r;
+}circle;
+
+float distance(circle c1, circle c2)
+{
+	float result = pow((c1.x - c2.x), 2);
+	result += pow((c1.y - c2.y), 2);
+	result = sqrt(result);
+	return result;
+}
+
+int intersect(circle c1, circle c2){
+	float distance = distance(c1, c2);
+	if(distance < (c1.r + c2.r))
+		return 1;
+	else
+		return 0;
+}
+
+float area(circle c1){
+	return (PI * pow(c1.r, 2));
+}
